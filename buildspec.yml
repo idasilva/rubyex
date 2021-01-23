@@ -1,0 +1,5 @@
+reports:
+  new-report-group: #surefire junit reports
+    files:
+      - '**/*'
+    base-directory: 'surefire/target/surefire-reports'

@@ -15,3 +15,6 @@
 [cucumber-and-ruby](https://blog.qaninja.io/cucumber-com-ruby-em-10-minutos/)
 
 
+## Gerar relatorio
+
+ cucumber --format html --out reports.html

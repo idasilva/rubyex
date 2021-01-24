@@ -1,5 +1,29 @@
+version: 0.2
+env:
+  variables:
+    AWS_S3_NAME: "digital-qa"
+    AWS_S3_REGION: "us-east-1"
+phases:
+  install:
+    commands:
+      - echo Installing Bundler...
+      - gem install bundler
+      - bundle install --deployment
+      - cucumber --version
+  pre_build:
+    commands:
+      - cucumber --version
+      - ruby --version
+  build:
+    commands:
+     - mkdir ./reports
+     - cucumber --format html --out .reports/reports.html
+  #post_build:
+    #commands:
+      #- aws s3 sync ./report/ s3://$AWS_S3_NAME --acl public-read --region $AWS_S3_REGION
 reports:
-  new-report-group: #surefire junit reports
+  new-report-group:
     files:
-      - '**/*'
-    base-directory: 'surefire/target/surefire-reports'
+      - './reports/*.html'
+    base-directory: './reports'
+    #file-format: CUCUMBERJSON

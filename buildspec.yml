@@ -10,7 +10,7 @@ phases:
     commands:
       - echo Installing Bundler...
       - gem install bundler
-      - bundle install
+      - bundle install --deployment
       - cucumber --version
   pre_build:
     commands:

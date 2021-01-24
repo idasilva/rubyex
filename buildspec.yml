@@ -5,13 +5,14 @@ env:
     AWS_S3_REGION: "us-east-1"
 phases:
   install:
+    runtime-versions:
+      ruby: 2.7
     commands:
       - echo Installing Bundler...
       - gem install bundler
       - bundle install
   pre_build:
     commands:
-      - cucumber --version
       - ruby --version
   build:
     commands:

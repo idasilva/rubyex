@@ -8,8 +8,7 @@ phases:
     commands:
       - echo Installing Bundler...
       - gem install bundler
-      - bundle install --deployment
-      - cucumber --version
+      - bundle install
   pre_build:
     commands:
       - cucumber --version
@@ -18,9 +17,6 @@ phases:
     commands:
      - mkdir ./reports
      - cucumber --format html --out .reports/reports.html
-  #post_build:
-    #commands:
-      #- aws s3 sync ./report/ s3://$AWS_S3_NAME --acl public-read --region $AWS_S3_REGION
 reports:
   new-report-group:
     files:

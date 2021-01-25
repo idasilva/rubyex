@@ -21,9 +21,8 @@ phases:
      - cucumber --format json --out ./temp/report.json
   post_build:
     commands:
-     - mkdir ./temp
      - cucumber --format html --out ./temp/report.html
-     - aws s3 sync ./temp/*.html s3://$AWS_S3_NAME --acl public-read --region $AWS_S3_REGION
+     - aws s3 cp ./temp/*.html s3://$AWS_S3_NAME --acl public-read --region $AWS_S3_REGION
 reports:
   new-report-group:
     files:

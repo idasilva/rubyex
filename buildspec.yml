@@ -8,17 +8,16 @@ phases:
     runtime-versions:
       ruby: 2.6
     commands:
-      - echo Installing Bundler...
+      - echo Installing cucumber....
       - gem install cucumber
-      - cucumber --help
-      - cucumber --version
   pre_build:
     commands:
+      - cucumber --version
       - ruby --version
   build:
     commands:
      - mkdir ./reports
-     - cucumber --format html --out .reports/reports.html
+     - cucumber --format json --out ./reports/report.json
   post_build:
     commands:
       - aws s3 sync ./reports/ s3://$AWS_S3_NAME --acl public-read --region $AWS_S3_REGION

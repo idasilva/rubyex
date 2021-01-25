@@ -11,7 +11,6 @@ phases:
       - echo Installing cucumber....
       - gem install cucumber:3.1.0
       - gem install rspec:3.7.0
-      - bundle install
   pre_build:
     commands:
       - cucumber --version

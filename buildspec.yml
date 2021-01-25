@@ -21,9 +21,9 @@ phases:
      - cucumber --format json --out report.json
      - mv report.json ./reports
 
-  #post_build:
-   # commands:
-     # - aws s3 sync ./reports/ s3://$AWS_S3_NAME --acl public-read --region $AWS_S3_REGION
+  post_build:
+    commands:
+     - aws s3 sync ./reports/ s3://$AWS_S3_NAME --acl public-read --region $AWS_S3_REGION
 reports:
   new-report-group:
     files:

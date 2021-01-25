@@ -25,6 +25,6 @@ phases:
 reports:
   new-report-group:
     files:
-      - './reports/'
+      - '*'
     base-directory: './reports'
     file-format: CUCUMBERJSON

@@ -29,4 +29,4 @@ reports:
     files:
       - './*.html'
     base-directory: './reports'
-    file-format: CUCUMBERJSON
+    file-format: CUCUMBERHTML

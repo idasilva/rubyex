@@ -17,14 +17,12 @@ phases:
       - ruby --version
   build:
     commands:
-     - mkdir ./reports && cd ./reports
-     - cucumber --format json --out report.json
-
+     - mkdir ./temp
+     - cucumber --format json --out ./temp/report.json
   post_build:
     commands:
-     - mkdir ./temp && cd ./temp &&
-     - cucumber --format html --out report.html
-     - aws s3 sync ./*.html s3://$AWS_S3_NAME --acl public-read --region $AWS_S3_REGION
+     - cucumber --format html --out ./temp/report.html
+     - aws s3 sync ./temp/*.html s3://$AWS_S3_NAME --acl public-read --region $AWS_S3_REGION
 reports:
   new-report-group:
     files:

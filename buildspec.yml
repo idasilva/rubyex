@@ -9,8 +9,8 @@ phases:
       ruby: 2.6
     commands:
       - echo Installing Bundler...
-      - gem install bundler
-      - bundle install --deployment
+      - gem install cucumber
+      - cucumber --help
       - cucumber --version
   pre_build:
     commands:
@@ -25,6 +25,6 @@ phases:
 reports:
   new-report-group:
     files:
-      - './reports/*.html'
+      - './reports/'
     base-directory: './reports'
-    #file-format: CUCUMBERJSON
+    file-format: CUCUMBERJSON

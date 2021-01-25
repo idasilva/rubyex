@@ -8,7 +8,8 @@ phases:
     runtime-versions:
       ruby: 2.6
     commands:
-      - echo Installing cucumber....
+      - echo Installing dependencies....
+      - gem install bundler
       - bundle install
   pre_build:
     commands:

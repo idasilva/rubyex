@@ -18,7 +18,7 @@ phases:
     commands:
      - mkdir ./reports
      - cucumber --format json --out  ./report.json
-     - cd ./reports
+     - mv report.json ./reports
 
   #post_build:
    # commands:

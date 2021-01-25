@@ -9,7 +9,7 @@ phases:
       ruby: 2.6
     commands:
       - echo Installing cucumber....
-      - gem install cucumber:3.1.0
+      - bundle install
   pre_build:
     commands:
       - cucumber --version

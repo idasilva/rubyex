@@ -17,8 +17,8 @@ phases:
   build:
     commands:
      - mkdir ./reports
-     - cucumber --format json --out  ./report.json
-     - mv ./report.json ./reports
+     - cucumber --format json --out report.json
+     - mv report.json ./reports
 
   #post_build:
    # commands:
@@ -26,6 +26,6 @@ phases:
 reports:
   new-report-group:
     files:
-      - '*'
+      - './*.json'
     base-directory: './reports'
     file-format: CUCUMBERJSON

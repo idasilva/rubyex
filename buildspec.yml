@@ -8,19 +8,22 @@ phases:
     runtime-versions:
       ruby: 2.6
     commands:
-      - echo Installing cucumber....
+      - echo Installing dependencies....
       - gem install cucumber:3.1.0
       - gem install rspec:3.7.0
   pre_build:
     commands:
+      - echo version ....
       - cucumber --version
       - ruby --version
   build:
     commands:
-     - mkdir ./temp
-     - cucumber --format json --out ./temp/report.json
+    -  echo reporting generation....
+    - mkdir ./temp
+    - cucumber --format json --out ./temp/report.json
   post_build:
     commands:
+     - echo push report to s3....
      - cucumber --format html --out ./temp/report.html
      - aws s3 cp ./temp/*.html s3://$AWS_S3_NAME --acl public-read --region $AWS_S3_REGION
 reports:

@@ -1,6 +1,6 @@
 class Restaurante
   def prato_do_dia(dia)
-    case dia
+    case (dia)
     when "segunda-feira"
       return "Virado a Paulista"
     when "terça-feira"
@@ -14,7 +14,6 @@ class Restaurante
     end
   end
 end
-
 Dado("que hoje é {string}") do |dia|
   @hoje = dia
 end

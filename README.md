@@ -18,3 +18,9 @@
 ## Gerar relatorio
 
  cucumber --format html --out reports.html
+
+
+#Init project 
+[hooks] -> Nesta pasta vamos guardar os arquivos responsáveis por instanciar nossas variáveis a cada chamada do cucumber
+[specifications] ->Nesta pasta serão salvos os arquivos .features
+[pages] -> Nesta pasta serão salvos os arquivos das classes do HTTParty contendo as requisições.

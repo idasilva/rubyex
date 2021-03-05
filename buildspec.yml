@@ -24,7 +24,7 @@ phases:
     commands:
     -  echo reporting generation....
     - mkdir ./temp
-    - cucumber --format json --out ./temp/report.json
+    - cucumber
   post_build:
     commands:
      - echo push report to s3....

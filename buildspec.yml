@@ -9,8 +9,12 @@ phases:
       ruby: 2.6
     commands:
       - echo Installing dependencies....
-      - gem install cucumber:3.1.0
-      - gem install rspec:3.7.0
+      - gem install bundler
+      - bundle install
+     #  - gem install cucumber:3.1.0
+     # - gem install rspec:3.7.0
+     # - gem install httparty
+     # - gem install rest-client
   pre_build:
     commands:
       - echo version ....

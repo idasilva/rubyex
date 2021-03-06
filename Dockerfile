@@ -4,7 +4,7 @@ RUN mkdir /app
 
 WORKDIR /app
 
-COPY . /app/
+COPY Gemfile* /app/
 
 RUN gem install bundler --source http://rubygems.org &&\
     bundle install

@@ -25,7 +25,7 @@ phases:
     #-  echo reporting generation....
     - mkdir ./temp
     #- cucumber
-    - docker run -it --mount src="$(pwd)"/temp,target=/app/temp,type=bind cucumber:6.0
+    - docker run  --mount src="$(pwd)"/temp,target=/app/temp,type=bind cucumber:6.0
   post_build:
     commands:
      - echo push report to s3....
@@ -36,3 +36,4 @@ reports:
       - './*.json'
     base-directory: './temp'
     file-format: CUCUMBERJSON
+

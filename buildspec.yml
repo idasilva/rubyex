@@ -19,7 +19,7 @@ phases:
       #- gem install httparty:0.18.1
   pre_build:
     commands:
-      - docker build -t cucumber:1.0 .
+      - docker build -t cucumber:6.0 .
   build:
     commands:
     #-  echo reporting generation....

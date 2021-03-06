@@ -25,7 +25,7 @@ phases:
     #-  echo reporting generation....
     - mkdir ./temp
     #- cucumber
-    - docker run -v /temp:/app cucumber:1.0
+    - docker run -v /temp:/temp cucumber:1.0
   post_build:
     commands:
      - echo push report to s3....

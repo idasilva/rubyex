@@ -7,14 +7,16 @@ phases:
   install:
     runtime-versions:
       ruby: 2.6
+      docker: 18
     commands:
       - echo Installing dependencies....
-     # - gem install bundler
+      - docker build -t cucumber:1.0 .
+      # - gem install bundler
       #- bundle install
-      - gem install rest-client:2.1.0
-      - gem install cucumber:3.1.0
-      - gem install rspec:3.7.0
-      - gem install httparty:0.18.1
+      #- gem install rest-client:2.1.0
+      #- gem install cucumber:3.1.0
+      #- gem install rspec:3.7.0
+      #- gem install httparty:0.18.1
   pre_build:
     commands:
       - echo version ....
@@ -24,7 +26,7 @@ phases:
     commands:
     -  echo reporting generation....
     - mkdir ./temp
-    - cucumber
+    - docker run -v ./temp:/app cucumber:1.0
   post_build:
     commands:
      - echo push report to s3....

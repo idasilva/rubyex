@@ -6,6 +6,7 @@ WORKDIR /app
 
 COPY Gemfile* /app/
 
-RUN bundle
+RUN gem install bundler --source http://rubygems.org &&\
+    bundle install
 
 CMD cucumber

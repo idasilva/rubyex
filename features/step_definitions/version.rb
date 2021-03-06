@@ -12,8 +12,8 @@ Então("a resposta deverar ser {string}") do |valor_esperado|
   @file = File.readlines('./VERSION', 'r')
   @result = "sim"
   if @file[0] != @valor_obtido
-    @result = "nao"
+   @result = "nao"
   end
-  expect(@result).to eql valor_esperado
+expect(@result).to eql valor_esperado
 end
 

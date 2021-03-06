@@ -7,24 +7,25 @@ phases:
   install:
     runtime-versions:
       ruby: 2.6
-      docker: 18
+     # docker: 18
     commands:
-      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
-      - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
-      # - gem install bundler
+      #- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2 &
+      # - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
+      #- gem install bundler
       #- bundle install
-      #- gem install rest-client:2.1.0
-      #- gem install cucumber:3.1.0
-      #- gem install rspec:3.7.0
-      #- gem install httparty:0.18.1
+      - gem install rest-client:2.1.0
+      - gem install cucumber:3.1.0
+      - gem install rspec:3.7.0
+      - gem install httparty:0.18.1
   pre_build:
     commands:
-      - docker build -t cucumber:1.0 .
+      #- docker build -t cucumber:1.0 .
   build:
     commands:
     -  echo reporting generation....
     - mkdir ./temp
-    - docker run -v ./temp:/app cucumber:1.0
+    - cucumber
+   # - docker run -v ./temp:/app cucumber:1.0
   post_build:
     commands:
      - echo push report to s3....

@@ -12,7 +12,7 @@ phases:
      # - gem install bundler
       #- bundle install
       - gem install cucumber:3.1.0
-      - gem install mime-types -v 3.0
+      - gem install mime-types -v 2.99.3
       - gem install rspec:3.7.0
       - gem install httparty:0.18.1
       - gem install rest-client:1.8.0
